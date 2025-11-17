@@ -1,14 +1,10 @@
 name: edgex-lucy-bot
 services:
   - name: bot
-    type: worker  # バックグラウンドで動くので Worker
-    regions:
-      - tokyo  # 日本から低レイテンシ
+    type: worker
+    regions: [tyo]           # Tokyo
+    instance:
+      type: cpu-micro        # CPU Standard Micro
     build:
-      type: docker
-      dockerfile: |
-        FROM python:3.11-slim
-        WORKDIR /app
-        COPY . .
-        RUN pip install --no-cache-dir -r requirements.txt
-        CMD ["python", "main.py"]
+      builder: buildpack
+      run_command: "python main.py"  # ← これが必須！
