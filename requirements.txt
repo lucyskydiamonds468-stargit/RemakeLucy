@@ -1,4 +1,3 @@
-# RemakeLucy v1.0 - Koyeb修正版（Stark署名対応）
-requests==2.31.0
-starkware-crypto==2.0.0  # StarkEx署名用（PyPIで確実インストール）
-ecdsa==0.18.0  # フォールバック用（ECDSA署名）
+git add requirements.txt
+git commit -m "fix: replace starkex with starkware-crypto for Koyeb build"
+git push origin main  # または b7027cb ブランチ
