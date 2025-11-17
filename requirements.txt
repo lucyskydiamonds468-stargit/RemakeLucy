@@ -1,2 +1,4 @@
-requests==2.32.3
-starkex==0.2.0
+# RemakeLucy v1.0 - Koyeb修正版（Stark署名対応）
+requests==2.31.0
+starkware-crypto==2.0.0  # StarkEx署名用（PyPIで確実インストール）
+ecdsa==0.18.0  # フォールバック用（ECDSA署名）
