@@ -1,10 +1,12 @@
-name: edgex-lucy-bot
-services:
-  - name: bot
-    type: worker
-    regions: [tyo]           # Tokyo
-    instance:
-      type: cpu-micro        # CPU Standard Micro
-    build:
-      builder: buildpack
-      run_command: "python main.py"  # ← これが必須！
+name: remakelucy
+type: python
+region: fra
+plan: free
+build:
+  dockerfile: |
+    FROM python:3.11-slim
+    WORKDIR /app
+    COPY requirements.txt .
+    RUN pip install --no-cache-dir -r requirements.txt
+    COPY . .
+    CMD ["python", "main.py"]
